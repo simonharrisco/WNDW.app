@@ -44,7 +44,3 @@ async function selectSource(source) {
   videoElement.srcObject = stream;
   videoElement.onloadedmetadata = (e) => videoElement.play();
 }
-// ipcRenderer.on("stream", (event, stream) => {
-//   videoElement.srcObject = stream;
-//   videoElement.onloadedmetadata = (e) => video.play();
-// });
