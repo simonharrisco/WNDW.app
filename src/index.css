@@ -89,6 +89,7 @@ body{
 }
 video{
   height: 100vh;
+  width: auto;
 }
 #videoSelectBtn{
   position: absolute;
@@ -100,4 +101,14 @@ video{
   position: absolute;
   bottom : 5px;
   left : 5px;
+}
+
+#sizeSelectWrapper{
+  position: absolute;
+  left : 15px;
+  bottom : 25px;
+}
+
+#sizeSelectWrapper button{
+  display: block;
 }

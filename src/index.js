@@ -9,11 +9,17 @@ if (require("electron-squirrel-startup")) {
 
 require("@electron/remote/main").initialize();
 
+var mainWindow;
+
 const createWindow = () => {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
-    width: 1920,
-    height: 1080,
+  mainWindow = new BrowserWindow({
+    width: 1280,
+    height: 720,
+    minWidth: 720,
+    minHeight: 720,
+    maxWidth: 5000,
+    maxHeight: 5000,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -27,13 +33,32 @@ const createWindow = () => {
   mainWindow.loadFile(path.join(__dirname, "index.html"));
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+
+  //mainWindow.webContents.openDevTools();
 };
 
 ipcMain.on("screen-capture", async (event, arg) => {
   desktopCapturer.getSources({ types: ["screen"] }).then((sources) => {
     event.sender.send("screen-capture-reply", sources);
   });
+});
+
+ipcMain.on("resize11720", async (event, arg) => {
+  mainWindow.setSize(720, 720, true);
+});
+ipcMain.on("resize169720", async (event, arg) => {
+  mainWindow.setSize(1280, 720, true);
+});
+ipcMain.on("resize111080", async (event, arg) => {
+  mainWindow.setSize(1080, 1080, true);
+});
+ipcMain.on("resize1691080", async (event, arg) => {
+  mainWindow.setSize(1920, 1080, true);
+});
+
+ipcMain.on("resizecustom", async (event, { width, height }) => {
+  console.log(typeof width, height);
+  mainWindow.setSize(parseInt(width), parseInt(height), true);
 });
 
 app.on("ready", createWindow);
