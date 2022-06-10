@@ -1,8 +1,8 @@
 {
-  "name": "screenshare",
-  "productName": "screenshare",
+  "name": "Wndw",
+  "productName": "Wndw",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "Wndw (window) is a simple tool to allow you to share just a slice of your screen, designed to help those with wide and ultrawide monitors.",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",

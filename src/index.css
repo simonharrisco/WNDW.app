@@ -4,12 +4,31 @@
 }
 body{
   overflow: hidden;
-  background-color: beige;
+  background: black;
+  color: white
+}
+h1{
+  position:absolute;
+  bottom: 0px;
+  left: 0px;
+  background-color: none;
+  padding: 25px 25px;
+  font-size: 10rem;
+  background: linear-gradient(136.64deg, #1144F9 5.27%, #11F997 93.92%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2{
+  position:absolute;
+  bottom: 0px;
+  left: 0px;
+  background-color: none;
+  padding: 15px 35px;
+  font-size: 2rem;
 }
 .videoWrapper{
   position: relative;
-  width: 100vw;
-  height: 100vh;
   overflow-x:scroll;
   overflow-y:hidden;
 }
@@ -19,13 +38,34 @@ video{
 }
 #videoSelectBtn{
   position: absolute;
-  top : 5px;
-  left : 5px;
+  top : 15px;
+  left : 25px;
+}
+.windowContainer{
+  margin-top:15px;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+}
+.windowContainer:hover{
+  opacity: 0.8;
+}
+button{
+  background-color: white;
+  opacity: 0.9;
+  color: black;
+  text-align: center;
+}
+button:hover{
+  background-color: white;
+  opacity: 0.5;
+  color: black;
+  text-align: center;
 }
 .resButton{
   user-select: none;
   width: 170px;
-  text-align: center;
+
+
 }
 #zoomControls{
   position: absolute;
@@ -35,10 +75,17 @@ video{
 
 #sizeSelectWrapper{
   position: absolute;
-  top : 15px;
-  right : 25px;
+  top : 0px;
+  right : 0px;
+  transition: opacity 0.5s ease-in-out;
+  padding: 15px 25px;
+  background-color: rgba(0,0,0,0.3)
 }
+#sizeSelectWrapper:hover{
+  opacity:1 !important;
 
+}
 #sizeSelectWrapper button{
   display: block;
 }
+

@@ -33,14 +33,19 @@ const createWindow = () => {
   mainWindow.loadFile(path.join(__dirname, "index.html"));
 
   // Open the DevTools.
-
   //mainWindow.webContents.openDevTools();
 };
 
 ipcMain.on("screen-capture", async (event, arg) => {
-  desktopCapturer.getSources({ types: ["screen"] }).then((sources) => {
-    event.sender.send("screen-capture-reply", sources);
-  });
+  desktopCapturer
+    .getSources({
+      types: ["screen"],
+      thumbnailSize: { width: 300, height: 300 },
+    })
+    .then((sources) => {
+      console.log("sources", sources);
+      event.sender.send("screen-capture-reply", sources);
+    });
 });
 
 ipcMain.on("resize11720", async (event, arg) => {

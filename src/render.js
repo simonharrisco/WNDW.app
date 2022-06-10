@@ -3,7 +3,7 @@ const { Menu } = require("@electron/remote");
 
 const videoElement = document.querySelector("video");
 const videoSelectBtn = document.getElementById("videoSelectBtn");
-
+const videoWrapper = document.getElementById("videoWrapper");
 const sizeSelectWrapper = document.getElementById("sizeSelectWrapper");
 let currentOpacity = 1;
 let opacityDecaySpeed = 0.01;
@@ -11,21 +11,31 @@ let currentTime = Date.now();
 let prevTime = Date.now();
 let screenSelected = false;
 
+let timer = Date.now();
+
 function step(timestamp) {
   timestamp = Date.now();
   const elapsed = timestamp - prevTime;
+
   if (prevTime !== timestamp && screenSelected && currentOpacity) {
-    currentOpacity = Math.max(0.97 * currentOpacity, 0);
-    sizeSelectWrapper.style.opacity = currentOpacity;
+    //currentOpacity = Math.max(0.97 * currentOpacity, 0);
+    if (Date.now() > timer + 500) {
+      sizeSelectWrapper.style.opacity = 0;
+    }
   }
   prevTime = timestamp;
   window.requestAnimationFrame(step);
 }
 window.requestAnimationFrame(step);
 
-// document.body.addEventListener("mousemove", function (e) {
-//   currentOpacity = 1;
-// });
+document.body.addEventListener("mousemove", function (e) {
+  timer = Date.now();
+  sizeSelectWrapper.style.opacity = 1;
+});
+document.body.addEventListener("scroll", function (e) {
+  timer = Date.now();
+  sizeSelectWrapper.style.opacity = 1;
+});
 
 const resize11720 = document.getElementById("resize11720");
 resize11720.onclick = () => ipcRenderer.send("resize11720");
@@ -71,12 +81,18 @@ async function getVideoSources() {
 }
 
 ipcRenderer.on("screen-capture-reply", (event, sources) => {
-  document.querySelector("#videoSelectBtn").innerHTML = "<p>Choose screen<p>";
+  document.querySelector("#videoSelectBtn").innerHTML =
+    "<div>Choose screen:</div>";
   sources.map((source, index) => {
-    const button = document.createElement("button");
-    button.innerText = source.name;
-    button.onclick = () => selectSource(source);
-    document.querySelector("#videoSelectBtn").appendChild(button);
+    const div = document.createElement("div");
+    div.classList.add("windowContainer");
+
+    const image = document.createElement("img");
+    image.src = source.thumbnail.toDataURL();
+    div.appendChild(image);
+
+    div.onclick = () => selectSource(source);
+    document.querySelector("#videoSelectBtn").appendChild(div);
   });
 });
 
@@ -100,4 +116,5 @@ async function selectSource(source) {
   videoElement.srcObject = stream;
   videoElement.onloadedmetadata = (e) => videoElement.play();
   screenSelected = true;
+  videoWrapper.style.height = "100vh";
 }
