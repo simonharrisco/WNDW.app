@@ -23,9 +23,9 @@ function step(timestamp) {
 }
 window.requestAnimationFrame(step);
 
-document.body.addEventListener("scroll", function (e) {
-  currentOpacity = 1;
-});
+// document.body.addEventListener("mousemove", function (e) {
+//   currentOpacity = 1;
+// });
 
 const resize11720 = document.getElementById("resize11720");
 resize11720.onclick = () => ipcRenderer.send("resize11720");
@@ -42,24 +42,24 @@ resize1691080.onclick = () => ipcRenderer.send("resize1691080");
 const customWidth = document.getElementById("width");
 const customHeight = document.getElementById("height");
 
-customWidth.addEventListener("focusout", (event) => {
-  if (customWidth.value > 5000) {
-    customWidth.value = 5000;
-  }
-});
+// customWidth.addEventListener("focusout", (event) => {
+//   if (customWidth.value > 5000) {
+//     customWidth.value = 5000;
+//   }
+// });
 
-customHeight.addEventListener("focusout", (event) => {
-  if (customHeight.value > 5000) {
-    customHeight.value = 5000;
-  }
-});
+// customHeight.addEventListener("focusout", (event) => {
+//   if (customHeight.value > 5000) {
+//     customHeight.value = 5000;
+//   }
+// });
 
-const customResize = document.getElementById("customSizeButton");
-customResize.onclick = () =>
-  ipcRenderer.send("resizecustom", {
-    width: customWidth.value,
-    height: customHeight.value,
-  });
+// const customResize = document.getElementById("customSizeButton");
+// customResize.onclick = () =>
+//   ipcRenderer.send("resizecustom", {
+//     width: customWidth.value,
+//     height: customHeight.value,
+//   });
 
 window.onload = getVideoSources;
 
@@ -71,7 +71,7 @@ async function getVideoSources() {
 }
 
 ipcRenderer.on("screen-capture-reply", (event, sources) => {
-  document.querySelector("#videoSelectBtn").innerHTML = "Choose screen: ";
+  document.querySelector("#videoSelectBtn").innerHTML = "<p>Choose screen<p>";
   sources.map((source, index) => {
     const button = document.createElement("button");
     button.innerText = source.name;
@@ -81,7 +81,6 @@ ipcRenderer.on("screen-capture-reply", (event, sources) => {
 });
 
 function changeVideoSize(change) {
-  console.log("got here");
   currentZoom += change;
   videoElement.style.width = `${currentZoom}%`;
 }

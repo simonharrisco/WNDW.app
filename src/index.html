@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <title>Screen sharer</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="wing.css" />
     <link rel="stylesheet" href="index.css" />
     <script defer src="render.js"></script>
   </head>
@@ -14,23 +16,24 @@
     <div id="videoSelectBtn"></div>
 
     <div id="sizeSelectWrapper">
-      <button id="resize11720">
+      <p>Set window resolution</p>
+      <button class="resButton" id="resize11720">
         <span>720x720</span>
       </button>
-      <button id="resize169720">
+      <button class="resButton" id="resize169720">
         <span>1280x720</span>
       </button>
-      <button id="resize111080">
+      <button class="resButton" id="resize111080">
         <span>1080x1080</span>
       </button>
-      <button id="resize1691080">
+      <button class="resButton" id="resize1691080">
         <span>1920x1080</span>
       </button>
-      <div>
+      <!-- <div>
         <input type="number" id="width" />
         <input type="number" id="height" />
         <button id="customSizeButton">Set Size</button>
-      </div>
+      </div> -->
     </div>
   </body>
 </html>
