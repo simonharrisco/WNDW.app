@@ -117,4 +117,5 @@ async function selectSource(source) {
   videoElement.onloadedmetadata = (e) => videoElement.play();
   screenSelected = true;
   videoWrapper.style.height = "100vh";
+  sizeSelectWrapper.classList.add("addBackground");
 }

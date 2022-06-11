@@ -1,22 +1,33 @@
 
+
+@font-face {
+  font-family: "Inter";
+  src: url(font/Inter.ttf) format("truetype");}
+
 *{
   box-sizing: border-box;
+  font-family: 'Inter' !important;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
 body{
   overflow: hidden;
-  background: black;
+  background: #1E1E1E;
   color: white
 }
 h1{
   position:absolute;
-  bottom: 0px;
-  left: 0px;
+  bottom: -22px;
+  left: 50px;
   background-color: none;
-  padding: 25px 25px;
-  font-size: 10rem;
+  font-size: 20rem;
   background: linear-gradient(136.64deg, #1144F9 5.27%, #11F997 93.92%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  line-height: 1;
 }
 
 h2{
@@ -50,15 +61,14 @@ video{
   opacity: 0.8;
 }
 button{
-  background-color: white;
+  background: linear-gradient(136.64deg, #1144F9 5.27%, #11F997 93.92%);
   opacity: 0.9;
-  color: black;
+  color: white;
   text-align: center;
 }
 button:hover{
-  background-color: white;
+
   opacity: 0.5;
-  color: black;
   text-align: center;
 }
 .resButton{
@@ -79,7 +89,10 @@ button:hover{
   right : 0px;
   transition: opacity 0.5s ease-in-out;
   padding: 15px 25px;
-  background-color: rgba(0,0,0,0.3)
+}
+.addBackground{
+  background-color: rgba(0,0,0,0.8)
+
 }
 #sizeSelectWrapper:hover{
   opacity:1 !important;
@@ -87,5 +100,9 @@ button:hover{
 }
 #sizeSelectWrapper button{
   display: block;
+}
+#note{
+  font-size: smaller;
+  width: 150px;
 }
 
