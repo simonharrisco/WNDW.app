@@ -1,8 +1,10 @@
-# WNDW.app - Designed to take the pain out of presenting your ultrawide monitor
+# WNDW.app 
 
-If you have an ultra-wide or super ultra wide monitor like me you know that sharing screen can be a pain.
+## Designed to take the pain out of presenting your ultrawide monitor
 
-Make Google Meet, Slack, Zoom and Discord simple. Using the 'share window' feature, with WNDW you can show just part of your screen.
+If you have an ultra-wide or super-ultra-wide monitor like me you know that sharing screen can be a pain.
+
+Make Google Meet, Slack, Zoom and Discord simple. Using the 'share window' feature, with WNDW you can show just a slice of your screen.
 
 It's check out [WNDW.app](https://wndw.app) for a demonstration & branding.
 
@@ -18,6 +20,6 @@ Install npm packages:
 Build the app:
 `npm run make`
 
-The app should appear built for you in the `./out` directory.
+The app should appear built for you in the `./out` directory. The built folder is about 200MB on Mac and 100MB on Windows
 
 You are welcome to request features or report bugs in the Github Issues. 
