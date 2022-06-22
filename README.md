@@ -6,7 +6,7 @@ If you have an ultra-wide or super-ultra-wide monitor like me you know that shar
 
 Make Google Meet, Slack, Zoom and Discord simple. Using the 'share window' feature, with WNDW you can show just a slice of your screen.
 
-It's check out [WNDW.app](https://wndw.app) for a demonstration & branding.
+Check out [WNDW.app](https://wndw.app) for a demonstration & branding.
 
 You should also follow me on twitter [@simonharrisco](https://twitter.com/SimonHarrisCo)
 
