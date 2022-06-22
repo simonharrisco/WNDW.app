@@ -52,18 +52,6 @@ resize1691080.onclick = () => ipcRenderer.send("resize1691080");
 const customWidth = document.getElementById("width");
 const customHeight = document.getElementById("height");
 
-// customWidth.addEventListener("focusout", (event) => {
-//   if (customWidth.value > 5000) {
-//     customWidth.value = 5000;
-//   }
-// });
-
-// customHeight.addEventListener("focusout", (event) => {
-//   if (customHeight.value > 5000) {
-//     customHeight.value = 5000;
-//   }
-// });
-
 // const customResize = document.getElementById("customSizeButton");
 // customResize.onclick = () =>
 //   ipcRenderer.send("resizecustom", {
