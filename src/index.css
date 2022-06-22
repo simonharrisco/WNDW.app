@@ -40,7 +40,7 @@ h2{
 }
 .videoWrapper{
   position: relative;
-  overflow-x:scroll;
+  overflow-x:auto;
   overflow-y:hidden;
 }
 video{

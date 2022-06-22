@@ -43,7 +43,6 @@ ipcMain.on("screen-capture", async (event, arg) => {
       thumbnailSize: { width: 300, height: 300 },
     })
     .then((sources) => {
-      console.log("sources", sources);
       event.sender.send("screen-capture-reply", sources);
     });
 });
